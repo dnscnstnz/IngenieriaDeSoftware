@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Consultar Disponibilidad {% endblock %}
+{% block content %}
+<main class="container">
+    <h1 style="text-align: center; margin-bottom: 20px;">Consultar Disponibilidad de Vehículos</h1>
+    <form method="GET" action="#">
+        <label for="disponibilidad">Seleccione disponibilidad:</label>
+        <select id="disponibilidad" name="disponibilidad">
+            <option value="True">Disponibles</option>
+            <option value="False">No Disponibles</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+
+    <div class="row mt-4">
+        {% for vehiculo in vehiculos %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ vehiculo.imagen.url }}" alt="{{ vehiculo.marca }}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ vehiculo.marca }}</h4>
+                    <p class="card-text">Capacidad: {{ vehiculo.cantPasajeros }}</p>
+                    <p class="card-text">Precio por Persona: {{ vehiculo.precioPorPersona }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

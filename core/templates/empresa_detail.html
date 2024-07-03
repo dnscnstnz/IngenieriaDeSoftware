@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block container %}
+<main class="container">
+    <h2 class="text-center">Nuestras Empresas</h2>
+    <div class="row">
+        {% for empresa in empresas %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="{{ empresa.logo.url }}" class="card-img-top img-fluid" alt="{{ empresa.nombre }} logo">
+                <div class="card-body">
+                    <h3 class="card-title">{{ empresa.nombre }}</h3>
+                    <p class="card-text">Cantidad de Vans: {{ empresa.cantVan }}</p>
+                    <p class="card-text">Cantidad de Automóviles: {{ empresa.cantAutos }}</p>
+                    <p class="card-text">Cantidad de Buses: {{ empresa.cantBuses }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h2 class="text-center mt-5">Tipos de Vehículos</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'img/foto_van.jpg' %}" class="card-img-top img-fluid" alt="Foto de una Van">
+                <div class="card-body">
+                    <h3 class="card-title">Van</h3>
+                    <p class="card-text">Todas nuestras empresas cuentan con Vans modernas y confortables.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'img/foto_bus.jpg' %}" class="card-img-top img-fluid" alt="Foto de un Bus">
+                <div class="card-body">
+                    <h3 class="card-title">Bus</h3>
+                    <p class="card-text">Nuestros buses ofrecen comodidad y seguridad para todos los pasajeros.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'img/foto_auto.jpg' %}" class="card-img-top img-fluid" alt="Foto de un Automóvil">
+                <div class="card-body">
+                    <h3 class="card-title">Automóvil</h3>
+                    <p class="card-text">Disponemos de una flota de automóviles modernos y eficientes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-dark mt-5">Ir a Inicio</a>
+</main>
+{% endblock %}

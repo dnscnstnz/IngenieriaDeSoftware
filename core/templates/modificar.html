@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %} Modificar Vehículo {% endblock %}
+{% block content %}
+<main class="container">
+    <h1 style="color: #222; text-align: center; margin-bottom: 20px;">Modificando Vehículo</h1>
+    <br>
+    <form action="{% url 'modificar' vehiculo.idVehiculo %}" method="POST" enctype="multipart/form-data" id="formulario_modificarVehiculo">
+        {% csrf_token %}
+        <div class="form-group">
+            <label style="color: #222;">ID Vehículo</label>
+            {{ forModificar.idVehiculo }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Empresa</label>
+            {{ forModificar.idEmpresa }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Categoría</label>
+            {{ forModificar.idCategoria }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Patente</label>
+            {{ forModificar.patente }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Capacidad</label>
+            {{ forModificar.cantPasajeros }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Descripción</label>
+            {{ forModificar.descripcion }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Imagen</label>
+            {{ forModificar.imagen }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Marca</label>
+            {{ forModificar.marca }}
+        </div>
+        <div class="form-group">
+            <label style="color: #222;">Precio por Persona</label>
+            {{ forModificar.precioPorPersona }}
+        </div>
+        <br>
+        <input type="submit" class="btn btn-warning" style="background-color: #f5c518; border-color: #f5c518; color: #222;" value="Modificar">
+        <a href="{% url 'adminTransfer' %}" class="btn btn-primary" style="background-color: #f5c518; border-color: #f5c518; color: #222;">Volver a Administración</a>
+    </form>
+</main>
+{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

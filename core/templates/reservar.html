@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="container">
+    <br>
+    <form action="#" method="POST" id="formulario">
+        {% csrf_token %}
+        <div class="form-group">
+            {{  formReserva.nombre.label }}
+            {{  formReserva.nombre }}
+        </div>
+        <div class="form-group">
+            {{  formReserva.apellido.label }}
+            {{  formReserva.apellido }}
+        </div>
+        <div class="form-group">
+            {{  formReserva.idReserva.label }}
+            {{  formReserva.idReserva }}
+        </div>
+        <div class="form-group">
+            {{  formReserva.cantidadPasajero.label }}
+            {{  formReserva.cantidadPasajero }}
+        </div>
+        <div class="form-group">
+            {{  formReserva.destino.label }}
+            {{  formReserva.destino }}
+        </div>
+        <div class="form-group">
+            <label for="id_idVehiculo">Seleccione un vehículo:</label>
+            <select name="idVehiculo" class="form-control" id="id_idVehiculo">
+                {% for vehiculo in vehiculos_disponibles %}
+                    <option value="{{ vehiculo.idVehiculo }}">{{ vehiculo.marca }} - {{ vehiculo.descripcion }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Enviar Reservar" class="btn btn-outline-info">
+        <a href="{% url 'ConsultaDispo' %}" class="btn btn-primary">Consultar Disponibilidad</a>
+    </form>
+</main>
+{% endblock %}

@@ -1,0 +1,18 @@
+body,*{
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    background-color: #ffcc00;
+    
+}
+.navbar .nav-link{
+    color: white;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+header{
+    background-color: #ffcc00;
+}
